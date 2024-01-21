@@ -14,9 +14,10 @@ namespace SeleniumBot
 {
     public class AutomationWeb
     {
-    // instancinado o driver do selenium 
+    // instanciando o driver do selenium 
         public IWebDriver driver;
 
+    //construtor e instancia do Driver do Chrome
         public AutomationWeb()
         {
             driver = new ChromeDriver();
@@ -72,6 +73,7 @@ namespace SeleniumBot
                 // Inserindo no banco de dados
                 InserirDadosNoBanco(result);
 
+
                 return text;
             }
 
@@ -88,9 +90,10 @@ namespace SeleniumBot
 
             try
             {
+                //interagindo com o banco de dados
                 string connectionString = "Data Source=DESKTOP-BOQ9G78\\SQLEXPRESS;Initial Catalog=ResultadosDeDigitacao;Integrated Security=True;";
 
-                // Criando uma string de comando SQL
+                // Comando de inserção dos valores nas colunas
                 string insertCommand = @"INSERT INTO ResultadosDeDigitacao (ppm, teclas, precisao, palavrasCorretas, palavrasErradas) 
                                                 VALUES (@ppm, @teclas, @precisao, @palavrasCorretas, @palavrasErradas)";
 
@@ -114,7 +117,7 @@ namespace SeleniumBot
                 Console.WriteLine("Erro ao inserir dados no banco de dados: " + ex.Message);
             }
         }
-        //criando o modelo do banco de dados
+        //definindo o modelo do banco de dados
         public class ConexaoSql
         {
             public int Id { get; set; }
