@@ -114,7 +114,7 @@ namespace SeleniumBot
                 Console.WriteLine("Erro ao inserir dados no banco de dados: " + ex.Message);
             }
         }
-        //criando o modelo do banco de dados
+        //definindo o modelo do banco de dados
         public class ConexaoSql
         {
             public int Id { get; set; }
